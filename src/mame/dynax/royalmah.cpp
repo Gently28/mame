@@ -2778,55 +2778,53 @@ static INPUT_PORTS_START( janptr96 )
 	PORT_INCLUDE( mjctrl1 )
 
 	PORT_START("DSW4")  // IN11
-	PORT_DIPNAME( 0x01, 0x00, DEF_STR( Demo_Sounds ) )
+	PORT_DIPNAME( 0x01, 0x00, DEF_STR( Demo_Sounds ) )  //テモ· サウンド OFF工場出荷時は、標準設定
 	PORT_DIPSETTING(    0x01, DEF_STR( Off ) )
 	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x02, 0x00, "In Game Music" )
+	PORT_DIPNAME( 0x02, 0x00, "In Game Music" )  //ゲーム· サウンド ON
 	PORT_DIPSETTING(    0x02, DEF_STR( Off ) )
 	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x04, 0x00, "Girls (Demo)" )
-	PORT_DIPSETTING(    0x04, DEF_STR( Off ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x08, 0x08, DEF_STR( Unknown ) )
-	PORT_DIPSETTING(    0x08, DEF_STR( Off ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x10, 0x10, DEF_STR( Unknown ) )
-	PORT_DIPSETTING(    0x10, DEF_STR( Off ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x20, 0x20, DEF_STR( Unknown ) )
+	PORT_DIPNAME( 0x04, 0x00, "Renso Gal Display" )  //連荘ギャル表示 ON
+	PORT_DIPSETTING(    0x04, DEF_STR( Off ) )  //無
+	PORT_DIPSETTING(    0x00, DEF_STR( On ) )  //有
+	PORT_DIPNAME( 0x08, 0x08, "Renso Gal Display Type" )  //連荘ギャル表示方法 ON
+	PORT_DIPSETTING(    0x08, "After 3 Renso" )  //3連荘後
+	PORT_DIPSETTING(    0x00, "Every Win")  //勝っ每
+	PORT_DIPNAME( 0x10, 0x10, "In-Game Gals Action" )  //ゲーム中のギャル ·アクション  ON
+	PORT_DIPSETTING(    0x10, DEF_STR( Off ) )  //無
+	PORT_DIPSETTING(    0x00, DEF_STR( On ) )  //有
+	PORT_DIPNAME( 0x20, 0x20, "Renso Rate" )  //連荘 RATE ON
 	PORT_DIPSETTING(    0x20, DEF_STR( Off ) )
 	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x40, 0x40, DEF_STR( Unknown ) )
+	PORT_DIPNAME( 0x40, 0x40, "Auto Tsumo" )  //オート·ツモ ON
 	PORT_DIPSETTING(    0x40, DEF_STR( Off ) )
 	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x80, 0x80, "Don Den Key" )
-	PORT_DIPSETTING(    0x80, "Start" )
-	PORT_DIPSETTING(    0x00, "Flip/Flop" )
+	PORT_DIPNAME( 0x80, 0x80, "Don Den Key" )  //DonDen 機能 ON
+	PORT_DIPSETTING(    0x80, "Start" )  //スタート・ボタン
+	PORT_DIPSETTING(    0x00, "Flip/Flop" )  //Ｆ／Ｆ・ボタン
 
 	PORT_START("DSW3")  // IN12
-	PORT_DIPNAME( 0x07, 0x07, "YAKUMAN Bonus" )
-	PORT_DIPSETTING(    0x07, "Cut" )
-	PORT_DIPSETTING(    0x06, "1 T" )
-	PORT_DIPSETTING(    0x05, "300" )
-	PORT_DIPSETTING(    0x04, "500" )
-	PORT_DIPSETTING(    0x03, "700" )
-	PORT_DIPSETTING(    0x02, "1000" )
-	PORT_DIPSETTING(    0x01, "1000?" )
-	PORT_DIPSETTING(    0x00, "1000?" )
-	PORT_DIPNAME( 0x08, 0x08, DEF_STR( Unknown ) )
-	PORT_DIPSETTING(    0x08, DEF_STR( Off ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x30, 0x30, DEF_STR( Unknown ) )
-	PORT_DIPSETTING(    0x30, "0" )
-	PORT_DIPSETTING(    0x20, "1" )
-	PORT_DIPSETTING(    0x10, "2" )
-	PORT_DIPSETTING(    0x00, "3" )
-	PORT_DIPNAME( 0x40, 0x40, DEF_STR( Unknown ) )
-	PORT_DIPSETTING(    0x40, DEF_STR( Off ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x80, 0x80, DEF_STR( Unknown ) )
-	PORT_DIPSETTING(    0x80, DEF_STR( Off ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
+	PORT_DIPNAME( 0x02, 0x02, "Bonus Chance Cycle" )  //DSW3(1-3)ボーナス ·チャンス設定周期  
+	PORT_DIPSETTING(    0x05, "Cut" )
+	PORT_DIPSETTING(    0x04, "1 T" )
+	PORT_DIPSETTING(    0x03, "300" )
+	PORT_DIPSETTING(    0x02, "500" )
+	PORT_DIPSETTING(    0x01, "700" )
+	PORT_DIPSETTING(    0x00, "1000" )
+	PORT_DIPNAME(    0x01, 0x01, "Bonus Chance  Times" )  //DSW3(4)ボーナス ·チャンスの回数周期設定毎に
+	PORT_DIPSETTING(    0x01, "1" )
+    PORT_DIPSETTING(    0x00, "2" )
+	PORT_DIPNAME( 0x30, 0x30, "Bonus Chance Rate" )  ////DSW3(5-6)ポーナスチャンス(周期設定時の役満チャンス&フィバーチャンス)の比率
+	PORT_DIPSETTING(    0x30, "YAKUMAN Only" )  //役満チャンスのみ   OFF OFF
+	PORT_DIPSETTING(    0x20, "Both Same" )  //役満チャンスとフィーバーチャンスが同等 ON	OFF
+	PORT_DIPSETTING(    0x10, "More FEVER Chance" )  //フィーバーチャンスが多い OFF	ON
+	PORT_DIPSETTING(    0x00, "FEVER Only" )  //フィーバーチャンスのみ  		ON	ON
+	PORT_DIPNAME( 0x40, 0x40, "Game Style" )  //ゲーム·スタイル
+	PORT_DIPSETTING(    0x40, "Credit" )  //クレジット方式
+	PORT_DIPSETTING(    0x00,"Credit Timer" )  //クレジットタイマー方式
+	PORT_DIPNAME( 0x80, 0x80, "Credit Timer Start Method" )  //クレジットタイマー時のスタート方式
+	PORT_DIPSETTING(    0x80, "Normal" )  //通常
+	PORT_DIPSETTING(    0x00, "Minimum Rate" )  //最低RATE固定
 
 	PORT_START("DSW2")  // IN13
 	PORT_DIPNAME( 0x03, 0x03, DEF_STR( Coin_A ) )
@@ -2881,25 +2879,24 @@ static INPUT_PORTS_START( janptr96 )
 	PORT_DIPSETTING(    0x00, "20" )
 
 	PORT_START("DSWTOP")    // IN15
-	PORT_DIPNAME( 0x01, 0x01, DEF_STR( Unknown ) )
-	PORT_DIPSETTING(    0x01, DEF_STR( Off ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x02, 0x02, "Debug Mode" )
+	PORT_DIPNAME( 0x01, 0x01, "Hopper  Active" )  //ホッパー·アクティブ
+	PORT_DIPSETTING(    0x01, "Normal" )
+	PORT_DIPSETTING(    0x00, "Inverted" )
+	PORT_DIPNAME( 0x02, 0x02, "Debug Mode" )  //OFF固定
 	PORT_DIPSETTING(    0x02, DEF_STR( Off ) )
 	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x04, 0x04, DEF_STR( Unknown ) )
-	PORT_DIPSETTING(    0x04, DEF_STR( Off ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x08, 0x08, DEF_STR( Unknown ) )
-	PORT_DIPSETTING(    0x08, DEF_STR( Off ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x10, 0x10, DEF_STR( Unknown ) )
-	PORT_DIPSETTING(    0x10, DEF_STR( Off ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x20, 0x20, DEF_STR( Unknown ) )
-	PORT_DIPSETTING(    0x20, DEF_STR( Off ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x40, 0x40, "Credits Per Note" )
+	PORT_DIPNAME( 0x04, 0x04, "Medal Timer Specifications" )  //メダルタイマー仕様
+	PORT_DIPSETTING(    0x04, DEF_STR( Off ) )  //無
+	PORT_DIPSETTING(    0x00, DEF_STR( On ) )  //有
+	PORT_DIPNAME( 0x08, 0x08,"Girl's Pose" )  //ギャル ポーズ
+	PORT_DIPSETTING(    0x08, "Normal")  //通常
+	PORT_DIPSETTING(    0x00, "H")  //過激
+	PORT_DIPNAME( 0x10, 0x10, "Computer Strength" )  //DSW2(9-10)コンピューターの強さ[放铳パターンの確率]
+	Very Strong	//強い OFF	OFF
+	Strong //やや強い(中等强度)ON	OFF
+    Normal//普通 OFF	ON
+    Weak //	弱いON	ON
+	PORT_DIPNAME( 0x40, 0x40, "Credits Per Note" )  
 	PORT_DIPSETTING(    0x40, "5" )
 	PORT_DIPSETTING(    0x00, "10" )
 	PORT_DIPNAME( 0x80, 0x80, DEF_STR( Flip_Screen ) )
