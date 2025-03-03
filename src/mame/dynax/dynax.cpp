@@ -3238,7 +3238,7 @@ static INPUT_PORTS_START( majxtal7 )
 	PORT_DIPSETTING(    0x40, "Key-out" )
 	PORT_DIPSETTING(    0x00, "Hopper" )
 	PORT_DIPNAME( 0x80, 0x80, "Hopper Polarity" )              PORT_DIPLOCATION("DIP2:8")
-	PORT_DIPSETTING(    0x80, DEF_STR(Normal) )
+	PORT_DIPSETTING(    0x80, "Normal" )
 	PORT_DIPSETTING(    0x00, "Inverted" )
 
 	PORT_START("DSW1") /* select = 40  */
@@ -3258,16 +3258,16 @@ static INPUT_PORTS_START( majxtal7 )
 	PORT_DIPNAME( 0x08, 0x08, "Yakuman Bonuses Per Cycle" )    PORT_DIPLOCATION("DIP3:4")
 	PORT_DIPSETTING(    0x08, "1" )
 	PORT_DIPSETTING(    0x00, "2" )
-	PORT_DIPNAME( 0x10, 0x10, "Win Rate?" )                    PORT_DIPLOCATION("DIP3:5")
-	PORT_DIPSETTING(    0x10, DEF_STR( High ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( Low ) )
-	PORT_DIPNAME( 0x20, 0x20, DEF_STR(Unknown) )               PORT_DIPLOCATION("DIP3:6")
-	PORT_DIPSETTING(    0x20, DEF_STR(Off) )
-	PORT_DIPSETTING(    0x00, DEF_STR(On) )
+	PORT_DIPNAME( 0x10, 0x10, "Computer strength" )        //コンピューターの強さ  PORT_DIPLOCATION("DIP3:5")
+	PORT_DIPSETTING(    0x10, "Normal" )  //普通	
+	PORT_DIPSETTING(    0x00, "Strong" )  //强い	
+	PORT_DIPNAME( 0x20, 0x20, "Service Count" )  //	サービス·カウント PORT_DIPLOCATION("DIP3:6")
+	PORT_DIPSETTING(    0x20, DEF_STR(On) )  //有
+	PORT_DIPSETTING(    0x00, DEF_STR(Off) )  //無
 	PORT_DIPNAME( 0x40, 0x00, "Don Den Button" )               PORT_DIPLOCATION("DIP3:7")
 	PORT_DIPSETTING(    0x40, "A" )
 	PORT_DIPSETTING(    0x00, "Flip Flop" )
-	PORT_DIPNAME( 0x80, 0x80, "Game Title" )                   PORT_DIPLOCATION("DIP3:8")
+	PORT_DIPNAME( 0x80, 0x80, "Game Title" )   //ON固定 it is Subtitle  PORT_DIPLOCATION("DIP3:8")
 	PORT_DIPSETTING(    0x80, "Mahjong X-tal 7" )
 	PORT_DIPSETTING(    0x00, "Mahjong Diamond 7" )
 
@@ -3275,13 +3275,13 @@ static INPUT_PORTS_START( majxtal7 )
 	PORT_DIPNAME( 0x01, 0x01, "Last Chance" )                  PORT_DIPLOCATION("DIP4:1")
 	PORT_DIPSETTING(    0x01, "Free" )
 	PORT_DIPSETTING(    0x00, "Paid" )
-	PORT_DIPNAME( 0x02, 0x02, "Pay Rate?" )                    PORT_DIPLOCATION("DIP4:2")
-	PORT_DIPSETTING(    0x02, DEF_STR( High ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( Low ) )
-	PORT_DIPNAME( 0x04, 0x04, "Choose Bonus" )                 PORT_DIPLOCATION("DIP4:3")
+	PORT_DIPNAME( 0x02, 0x02, "Renso Rate" )   //連荘レート     PORT_DIPLOCATION("DIP4:2")
+	PORT_DIPSETTING(    0x02, DEF_STR(On ) )  //有
+	PORT_DIPSETTING(    0x00, DEF_STR( Off ) )   //無
+	PORT_DIPNAME( 0x04, 0x04, "Auto Tsumo" )      //オート·ツモ  PORT_DIPLOCATION("DIP4:3")
 	PORT_DIPSETTING(    0x04, DEF_STR( Off ) )
 	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-	PORT_DIPNAME( 0x08, 0x08, DEF_STR(Unknown) )               PORT_DIPLOCATION("DIP4:4")
+	PORT_DIPNAME( 0x08, 0x08, "Dora Open" )     //ドラ·オープン  PORT_DIPLOCATION("DIP4:4")
 	PORT_DIPSETTING(    0x00, DEF_STR(Off) )
 	PORT_DIPSETTING(    0x08, DEF_STR(On) )
 	PORT_DIPNAME( 0x10, 0x00, DEF_STR(Demo_Sounds) )           PORT_DIPLOCATION("DIP4:5")
@@ -3293,12 +3293,12 @@ static INPUT_PORTS_START( majxtal7 )
 	PORT_DIPNAME( 0x40, 0x40, "Gal Select" )                   PORT_DIPLOCATION("DIP4:7")
 	PORT_DIPSETTING(    0x40, DEF_STR(Off) )
 	PORT_DIPSETTING(    0x00, DEF_STR(On) )
-	PORT_DIPNAME( 0x80, 0x00, DEF_STR(Unknown) )               PORT_DIPLOCATION("DIP4:8")
+	PORT_DIPNAME( 0x80, 0x00, "Unused" )      //OFF 固定        PORT_DIPLOCATION("DIP4:8")
 	PORT_DIPSETTING(    0x80, DEF_STR(Off) )
 	PORT_DIPSETTING(    0x00, DEF_STR(On) )
 
-	PORT_START("FAKE")  /* IN10 - Fake DSW */
-	PORT_DIPNAME( 0xff, 0xff, DEF_STR( Unknown ) )
+	PORT_START("Allow Bets")  /* IN10 - Fake DSW */
+	PORT_DIPNAME( 0xff, 0xff, "Allow Bets" )  //not fake
 	PORT_DIPSETTING(    0x00, DEF_STR( Off ) )
 	PORT_DIPSETTING(    0xff, DEF_STR( On ) )
 
