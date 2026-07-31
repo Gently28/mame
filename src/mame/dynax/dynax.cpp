@@ -1565,20 +1565,20 @@ static INPUT_PORTS_START( cdracula )
 	PORT_DIPSETTING(    0x40, DEF_STR( Off ) )
 	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
 	PORT_DIPNAME( 0x80, 0x80, "Graphics Test" )          PORT_DIPLOCATION( "SW2:8" )
-	PORT_DIPSETTING(    0x80, DEF_STR( Off ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
-INPUT_PORTS_END
-
-static INPUT_PORTS_START( hanamai )
-	PORT_START("DSW0")
-	PORT_DIPNAME( 0x03, 0x03, DEF_STR( Coin_A ) )        PORT_DIPLOCATION( "DIP1:1,2" )
-	PORT_DIPSETTING(    0x03, DEF_STR( 1C_1C ) )
-	PORT_DIPSETTING(    0x02, DEF_STR( 1C_2C ) )
-	PORT_DIPSETTING(    0x01, DEF_STR( 1C_3C ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( 1C_5C ) )
-	PORT_DIPNAME( 0x04, 0x04, DEF_STR( Unknown ) )       PORT_DIPLOCATION( "DIP1:3" )
-	PORT_DIPSETTING(    0x04, DEF_STR( Off ) )
-	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
+	case CPIR:
+                a8 = RM8(m_hl.w.l);
+                b8 = m_af.b.h - a8;
+                m_hl.w.l++;
+                m_bc.w.l--;
+                F = (F & (IF | CF)) | SZ[b8] | ((m_af.b.h^a8^b8)&HF) | NF;
+                if ( m_bc.w.l )
+                {
+                    F |= VF;
+                    m_pc.w.l -= 2;
+                    Cyc();
+                }
+                else    Cyc_f();
+                break;
 	PORT_DIPNAME( 0x08, 0x08, DEF_STR( Unknown ) )       PORT_DIPLOCATION( "DIP1:4" )
 	PORT_DIPSETTING(    0x08, DEF_STR( Off ) )
 	PORT_DIPSETTING(    0x00, DEF_STR( On ) )
