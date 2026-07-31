@@ -1573,7 +1573,9 @@ void tlcs90_device::execute_run()
 				F = (F & (IF | CF)) | SZ[b8] | ((m_af.b.h^a8^b8)&HF) | NF;
 				if ( m_bc.w.l )
 				{
-					F |= VF;
+					F |= VF; 
+				if ( m_bc.w.l && b8 != 0 )
+                {
 					m_pc.w.l -= 2;
 					Cyc();
 				}
